@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class ProdutoAdapter(private val produtos: List<Produto>): RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>() {
+class ProdutoAdapter(private val produtos: List<Produto>,
+                     private val goToDetail: (product: Produto) -> Unit
+):
+    RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>() {
+
 
     inner class ProdutoViewHolder(private val itemView: View): RecyclerView.ViewHolder(itemView){
         fun bind(produto: Produto){
@@ -20,6 +24,10 @@ class ProdutoAdapter(private val produtos: List<Produto>): RecyclerView.Adapter<
             txtPrecoProduto.text = produto.preco
 
             Glide.with(itemView.context).load(produto.url).into(imgProduto)
+
+            itemView.setOnClickListener{
+                goToDetail(produto)
+            }
         }
 
     }

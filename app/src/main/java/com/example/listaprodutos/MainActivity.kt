@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val navController = findNavController(R.id.fragmentContainerView) as NavController
+        val navController = findNavController(R.id.fragmentContainerView)
         val navView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-        navView.setupWithNavController(navController)
+        NavigationUI.setupWithNavController(navView, navController)
     }
 }

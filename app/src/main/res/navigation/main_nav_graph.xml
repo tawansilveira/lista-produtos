@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_detalhaFragment"
-            app:destination="@id/detalhaFragment" />
+            app:destination="@id/detalheFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -20,8 +20,17 @@
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" />
     <fragment
-        android:id="@+id/detalhaFragment"
-        android:name="com.example.listaprodutos.DetalhaFragment"
+        android:id="@+id/detalheFragment"
+        android:name="com.example.listaprodutos.DetalheFragment"
         android:label="fragment_detalhe"
-        tools:layout="@layout/fragment_detalhe" />
+        tools:layout="@layout/fragment_detalhe" >
+        <argument
+            android:name="produto"
+            app:argType="com.example.listaprodutos.Produto" />
+        <action
+            android:id="@+id/action_detalheFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
